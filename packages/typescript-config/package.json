@@ -1,0 +1,14 @@
+{
+  "name": "@repo/typescript-config",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./base": "./base.jsonc",
+    "./node": "./node.jsonc",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "*.jsonc",
+    "package.json"
+  ]
+}

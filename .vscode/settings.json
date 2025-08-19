@@ -1,0 +1,43 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["package.json"],
+      "url": "https://json.schemastore.org/package.json"
+    },
+    {
+      "fileMatch": ["tsconfig*.json", "tsconfig*.jsonc"],
+      "url": "https://json.schemastore.org/tsconfig"
+    },
+    {
+      "fileMatch": ["vite.config.*"],
+      "url": "https://json.schemastore.org/vite"
+    },
+    {
+      "fileMatch": [".eslintrc.json", ".eslintrc.*.json"],
+      "url": "https://json.schemastore.org/eslintrc"
+    },
+    {
+      "fileMatch": ["tailwind.config.*"],
+      "url": "https://json.schemastore.org/tailwindcss"
+    },
+    {
+      "fileMatch": ["next.config.*"],
+      "url": "https://json.schemastore.org/nextjs"
+    },
+    {
+      "fileMatch": ["jest.config.*"],
+      "url": "https://json.schemastore.org/jest"
+    },
+    {
+      "fileMatch": ["cypress.json", "cypress.config.*"],
+      "url": "https://json.schemastore.org/cypress"
+    },
+    {
+      "fileMatch": ["turbo.json"],
+      "url": "https://turborepo.com/schema.json"
+    }
+  ],
+  "json.validate.enable": true,
+  "json.format.enable": true,
+  "json.schemaDownload.enable": true
+}
