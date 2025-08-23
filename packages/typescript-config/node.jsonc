@@ -3,6 +3,8 @@
   "extends": "./base.jsonc",
   "compilerOptions": {
     "lib": ["ESNext"],
-    "types": ["bun"]
+    "types": ["node"],
+    "noEmit": true,
+    "allowImportingTsExtensions": true
   }
 }

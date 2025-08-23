@@ -79,3 +79,5 @@ docs/.vitepress/dist
 
 # monorepo
 .turbo
+
+reference/
