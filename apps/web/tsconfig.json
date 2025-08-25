@@ -1,5 +1,5 @@
 {
-  "extends": "@repo/typescript-config/base.jsonc",
+  "extends": "../../packages/typescript-config/astro.jsonc",
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"]
 }
