@@ -3,6 +3,7 @@
 
 # Compiled output
 **/dist/
+**/dist-ssr/
 **/*.tsbuildinfo
 
 # Bun package manager
@@ -63,6 +64,7 @@ terraform.rc
 # Generated route tree files should not be committed
 */lib/routeTree.gen.ts
 */.tanstack/
+.nitro
 
 # VitePress
 docs/.vitepress/cache
