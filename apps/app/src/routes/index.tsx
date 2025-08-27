@@ -1,41 +1,20 @@
-import * as Solid from 'solid-js'
-import { createFileRoute } from '@tanstack/solid-router'
+import { createFileRoute } from "@tanstack/solid-router";
+import { Tooltip } from "../components/dialog";
+import { Accordion } from "../components/accordion";
 
-import logo from '../logo.svg'
-
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute("/")({
   component: IndexComponent,
-})
+});
 
 function IndexComponent() {
   return (
     <div class="text-center">
-      <header class="min-h-screen flex flex-col items-center justify-center bg-[#282c34] text-white text-[calc(10px+2vmin)]">
-        <img
-          src={logo}
-          class="h-[40vmin] pointer-events-none animate-[spin_20s_linear_infinite]"
-          alt="logo"
-        />
-        <p>
-          Edit <code>src/routes/index.tsx</code> and save to reload.
-        </p>
-        <a
-          class="text-[#61dafb] hover:underline"
-          href="https://solidjs.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-        <a
-          class="text-[#61dafb] hover:underline"
-          href="https://tanstack.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn TanStack
-        </a>
-      </header>
+      <button class="inline-block cursor-pointer rounded-md bg-gray-800 px-4 py-3 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-900">
+        Button
+      </button>
+      <Tooltip />
+      <Accordion />
+      <button class="btn btn-primary text-left">Button</button>
     </div>
-  )
+  );
 }
