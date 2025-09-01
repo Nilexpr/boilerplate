@@ -123,6 +123,16 @@ importers:
         version: 1.9.9
 
   packages/components:
+    dependencies:
+      '@repo/tailwind-preset':
+        specifier: workspace:*
+        version: link:../tailwind-preset
+      '@zag-js/accordion':
+        specifier: ^1.21.9
+        version: 1.21.9
+      '@zag-js/solid':
+        specifier: ^1.21.9
+        version: 1.21.9(solid-js@1.9.9)
     devDependencies:
       '@chromatic-com/storybook':
         specifier: ^4.1.1

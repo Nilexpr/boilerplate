@@ -13,6 +13,8 @@
     ".storybook/**/*.tsx",
     "stories/**/*.ts",
     "stories/**/*.tsx",
-    "stories/types/*.d.ts"
+    "stories/types/*.d.ts",
+    "components/**/*.ts",
+    "components/**/*.tsx"
   ]
 }
