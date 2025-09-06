@@ -1,6 +1,14 @@
 import { mergeConfig } from "vite";
-
+import tailwindcss from "@tailwindcss/vite";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import type { StorybookConfig } from "storybook-solidjs-vite";
+
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
+
+console.log("__dirname", path.resolve(__dirname, "../src"));
 
 export default {
   framework: "storybook-solidjs-vite",
@@ -24,6 +32,12 @@ export default {
     return mergeConfig(config, {
       define: {
         "process.env": {},
+      },
+      plugins: [tailwindcss()],
+      resolve: {
+        alias: {
+          "@": path.resolve(__dirname, "../src"),
+        },
       },
     });
   },

@@ -6,7 +6,10 @@
     "allowJs": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": [
     ".storybook/**/*.ts",
@@ -15,6 +18,8 @@
     "stories/**/*.tsx",
     "stories/types/*.d.ts",
     "components/**/*.ts",
-    "components/**/*.tsx"
+    "components/**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx"
   ]
 }
