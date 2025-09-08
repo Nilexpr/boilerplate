@@ -25,9 +25,12 @@
   },
   "dependencies": {
     "@repo/tailwind-preset": "workspace:*",
+    "@solid-primitives/utils": "^6.3.2",
     "@tailwindcss/vite": "^4.1.12",
-    "@zag-js/accordion": "^1.21.9",
-    "@zag-js/solid": "^1.21.9",
+    "@zag-js/accordion": "^1.22.1",
+    "@zag-js/collapsible": "^1.22.1",
+    "@zag-js/presence": "^1.22.1",
+    "@zag-js/solid": "^1.22.1",
     "clsx": "^2.1.1",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.12"
