@@ -6,6 +6,9 @@
     "dev": "storybook dev -p 6010",
     "build": "storybook build"
   },
+  "exports": {
+    "./presence": "./src/components/presence/index.tsx"
+  },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.1",
     "@storybook/addon-a11y": "^9.1.3",

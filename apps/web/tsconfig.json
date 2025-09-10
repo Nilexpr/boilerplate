@@ -1,5 +1,10 @@
 {
   "extends": "../../packages/typescript-config/astro.jsonc",
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  "exclude": ["dist"],
+  "compilerOptions": {
+    "module": "ESNext",
+    /* Bundler mode */
+    "moduleResolution": "bundler"
+  }
 }

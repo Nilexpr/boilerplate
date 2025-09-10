@@ -1,10 +1,12 @@
 ---
 import { Test } from "../components/test";
+import "../styles/global.css";
 ---
 
 <html>
   <body>
-    <h1>Use Solid components directly in Astro!</h1>
-    <Test client:load />
+    <!-- <h1>Use Solid components directly in Astro!</h1> -->
+    <!-- <Test client:load /> -->
+    <Test client:media="(max-width:1000px)" />
   </body>
 </html>
