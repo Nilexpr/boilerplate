@@ -1,17 +1,24 @@
 import * as collapsible from "@zag-js/collapsible";
 import { normalizeProps, useMachine } from "@zag-js/solid";
-import { createMemo, createUniqueId } from "solid-js";
+import { createMemo, createUniqueId, mergeProps, splitProps } from "solid-js";
 
-const CollapsibleRoot = () => {
-  return <div>123</div>;
+export const Collapsible = (props: collapsible.Props) => {
+  const [machineProps, localProps] = splitProps(props, collapsible.props);
+
+  const service = useMachine(
+    collapsible.machine,
+    mergeProps({
+      id: createUniqueId(),
+      ...machineProps,
+    })
+  );
+
+  const api = createMemo(() => collapsible.connect(service, normalizeProps));
+
+  return (
+    <div {...api().getRootProps()}>
+      <button {...api().getTriggerProps()}>Collapse Trigger</button>
+      <div {...api().getContentProps()}>Collapse Content</div>
+    </div>
+  );
 };
-
-const CollapsibleTrigger = () => {
-  return <div>234</div>;
-};
-
-const CollapsibleContent = () => {
-  return <div>345</div>;
-};
-
-export { CollapsibleRoot, CollapsibleTrigger, CollapsibleContent };

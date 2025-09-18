@@ -32,3 +32,5 @@ export function Accordion() {
     </div>
   );
 }
+
+// Accordion.name = "Test";
