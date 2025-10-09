@@ -23,9 +23,10 @@ const NODES = [
 ] as const;
 
 type ElementType = keyof JSX.IntrinsicElements;
+export type HTMLProps<E extends ElementType> = JSX.IntrinsicElements[E];
 
 type ParentProps<T extends ElementType> = (
-  userProps?: JSX.IntrinsicElements[T]
+  userProps?: HTMLProps<T>
 ) => JSX.HTMLAttributes<any>;
 
 export type PolymorphicProps<T extends ElementType> = {
@@ -35,8 +36,11 @@ export type PolymorphicProps<T extends ElementType> = {
   asChild?: (props: ParentProps<T>) => JSX.Element;
 };
 
-type PrimitiveComponent<E extends ElementType> = (
-  props: JSX.IntrinsicElements[E] & PolymorphicProps<E>
+export type PrimitiveProps<E extends ElementType> = HTMLProps<E> &
+  PolymorphicProps<E>;
+
+export type PrimitiveComponent<E extends ElementType> = (
+  props: PrimitiveProps<E>
 ) => JSX.Element;
 
 type Primitives = {
