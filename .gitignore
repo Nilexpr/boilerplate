@@ -83,3 +83,4 @@ docs/.vitepress/dist
 .turbo
 
 reference/
+.tanstack/

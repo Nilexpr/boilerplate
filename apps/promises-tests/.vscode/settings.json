@@ -1,0 +1,7 @@
+{
+  "editor.inlineSuggest.enabled": false,
+  "editor.quickSuggestions": false,
+  "editor.suggestOnTriggerCharacters": false,
+  "javascript.suggest.enabled": false,
+  "typescript.suggest.enabled": false
+}
