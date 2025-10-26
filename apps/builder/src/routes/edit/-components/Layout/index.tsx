@@ -7,7 +7,7 @@ export const Layout: Component<{
   rightSideBar?: JSXElement;
 }> = (props) => {
   return (
-    <section class="grid grid-cols-3 grid-rows-[auto_1fr]">
+    <section class="grid grid-cols-[minmax(auto,200px)_1fr_minmax(auto,200px)] grid-rows-[auto_1fr]">
       <header class="col-span-3 row-span-1">{props.header}</header>
       <aside class="col-span-1 row-span-2">{props.leftSideBar}</aside>
       <main class="col-span-1 row-span-2">{props.main}</main>

@@ -1,32 +1,66 @@
 import { createFileRoute } from "@tanstack/solid-router";
-import { type ParentComponent } from "solid-js";
+import { type ParentComponent, Show } from "solid-js";
 import { SideBar } from "./-components/SideBar";
 import { Header } from "./-components/Header";
 import { Layout } from "./-components/Layout";
-import { Renderer } from "../../components/Renderer";
 import { Comp } from "./-components/Comp";
+import { DropZone } from "../../components/DropZone";
+import {
+  DragDropProvider,
+  DragDropSensors,
+  DragOverlay,
+  useDragDropContext,
+} from "@thisbeyond/solid-dnd";
 
-const Editor: ParentComponent = (props) => {
+const Editor: ParentComponent = () => {
   return (
-    <div>
-      <Layout
-        header={<Header />}
-        leftSideBar={
-          <SideBar>
-            <Comp />
-          </SideBar>
-        }
-        main={<Renderer />}
-        rightSideBar={<SideBar />}
-      ></Layout>
-    </div>
+    <DragDropProvider
+      onDragEnd={(e) => {
+        console.log(e);
+      }}
+      onDragMove={(e) => {
+        console.log(e);
+      }}
+    >
+      <DragDropSensors />
+      <div>
+        <Layout
+          header={<Header />}
+          leftSideBar={
+            <SideBar>
+              <Comp />
+            </SideBar>
+          }
+          main={<DropZone />}
+          rightSideBar={<SideBar />}
+        ></Layout>
+      </div>
+      <DragOverlay>
+        <DragOverlayContent />
+      </DragOverlay>
+    </DragDropProvider>
+  );
+};
+
+const DragOverlayContent = () => {
+  const context = useDragDropContext();
+
+  if (!context) return null;
+
+  const [state] = context;
+
+  return (
+    <Show when={state.active.draggable}>
+      <div class="bg-primary text-primary-foreground m-2 max-w-32 cursor-grabbing rounded-md p-2 opacity-90 shadow-lg">
+        {state.active.draggable?.data.type}
+      </div>
+    </Show>
   );
 };
 
 export const Route = createFileRoute("/edit/")({
   component: Editor,
-  loader: (props) => {
-    // props.
+  loader: () => {
     return {
       message: "Hello, world!",
     };

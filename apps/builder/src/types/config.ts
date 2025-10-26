@@ -18,7 +18,7 @@ export interface ComponentConfig<RenderProps extends Record<string, any>> {
 
   componentName: string;
 
-  props: Record<string, string>;
+  defaultProps: Record<string, any>;
 
   fields: Record<string, Field>;
 

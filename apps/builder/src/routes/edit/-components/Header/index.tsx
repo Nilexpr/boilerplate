@@ -1,7 +1,7 @@
 import type { Component } from "solid-js";
 import { Button } from "../../../../components/Button/button";
 import { RuntimeClient } from "../../../../services/runtimeClient";
-import { RegisterComponent } from "../../../../core/register-component";
+import { RegisterComponent } from "../../../../core/registerComponent";
 
 export const Header: Component<{
   title?: string;
