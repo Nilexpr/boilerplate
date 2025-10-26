@@ -1,24 +1,10 @@
-import { createFileRoute, useNavigate } from "@tanstack/solid-router";
+import { createFileRoute, redirect } from "@tanstack/solid-router";
 
 export const Route = createFileRoute("/")({
-  component: IndexComponent,
+  // 使用 beforeLoad 在加载前重定向（推荐）
+  beforeLoad: () => {
+    throw redirect({
+      to: "/edit",
+    });
+  },
 });
-
-function IndexComponent() {
-  const navigate = useNavigate();
-  return (
-    <div>
-      <button
-        class="rounded-md bg-blue-500 p-2 text-white"
-        onclick={() => {
-          navigate({
-            to: "/edit",
-          });
-        }}
-      >
-        Go to Editor
-      </button>
-      Hello IndexComponent!
-    </div>
-  );
-}

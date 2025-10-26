@@ -4,13 +4,18 @@ import { SideBar } from "./-components/SideBar";
 import { Header } from "./-components/Header";
 import { Layout } from "./-components/Layout";
 import { Renderer } from "../../components/Renderer";
+import { Comp } from "./-components/Comp";
 
 const Editor: ParentComponent = (props) => {
   return (
     <div>
       <Layout
         header={<Header />}
-        leftSideBar={<SideBar />}
+        leftSideBar={
+          <SideBar>
+            <Comp />
+          </SideBar>
+        }
         main={<Renderer />}
         rightSideBar={<SideBar />}
       ></Layout>

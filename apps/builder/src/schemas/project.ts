@@ -1,13 +1,35 @@
-import { Schema } from "effect";
+import { Effect, Schema } from "effect";
 import { Node } from "./node";
-import { ComponentMap } from "./map";
 
-export class Project extends Schema.Class<Project>("Project")({
+class ProjectSerialized extends Schema.Class<ProjectSerialized>(
+  "ProjectSerialized",
+)({
   id: Schema.String,
-  // version: Schema.String.pipe(Schema.pattern(/^\d+\.\d+\.\d+$/)),
-  componentsMap: Schema.Record({
-    key: Schema.String,
-    value: ComponentMap,
-  }),
-  componentsTree: Node,
+
+  name: Schema.String,
+
+  content: Schema.Array(Node),
 }) {}
+
+class ProjectDeserialized extends Schema.Class<ProjectDeserialized>(
+  "ProjectDeserialized",
+)({
+  id: Schema.String,
+
+  name: Schema.String,
+
+  content: Schema.Array(Node),
+}) {}
+
+export const Project = Schema.transformOrFail(
+  ProjectDeserialized,
+  ProjectSerialized,
+  {
+    decode: (value) => {
+      return Effect.succeed(value);
+    },
+    encode: (value) => {
+      return Effect.succeed(value);
+    },
+  },
+);
