@@ -13,15 +13,21 @@ import {
 } from "@thisbeyond/solid-dnd";
 
 const Editor: ParentComponent = () => {
+  const handleDragEnd = (event: any) => {
+    console.log("Drag ended:", event);
+
+    // 检查是否放置到了 canvas-dropzone
+    if (event.droppable?.id === "canvas-dropzone") {
+      const componentType = event.draggable.data.type;
+      console.log(`Component ${componentType} dropped on canvas!`);
+
+      // TODO: 在这里添加组件到画布的逻辑
+      // 例如：添加到状态、渲染到 iframe 内部等
+    }
+  };
+
   return (
-    <DragDropProvider
-      onDragEnd={(e) => {
-        console.log(e);
-      }}
-      onDragMove={(e) => {
-        console.log(e);
-      }}
-    >
+    <DragDropProvider onDragEnd={handleDragEnd}>
       <DragDropSensors />
       <div>
         <Layout

@@ -178,3 +178,37 @@ export default class MyPromise {
     });
   };
 }
+
+Function.prototype.myBind = function (ctx: any, ...args: any[]) {
+  return function (...args2: any[]) {
+    ctx.__fn = this;
+    const result = ctx.__fn(...args, ...args2);
+    delete ctx.__fn;
+    return result;
+  };
+};
+
+const debounce = (fn: (...args: any[]) => void, delay: number) => {
+  let timer: any = null;
+  return function (...args: any[]) {
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(() => {
+      fn(...args);
+    }, delay);
+  };
+};
+
+const throttle = (fn: (...args: any[]) => void, delay: number) => {
+  let timer: any = null;
+  let lastTime = 0;
+  return function (...args: any[]) {
+    const now = Date.now();
+    if (now - lastTime < delay) {
+      return;
+    }
+    lastTime = now;
+    fn(...args);
+  };
+};

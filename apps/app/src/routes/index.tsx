@@ -56,6 +56,8 @@ function IndexComponent() {
       <button onclick={longTask}>Click me to execute the long task</button>
       <button onclick={workLoop}>Click me to execute the task queue</button>
       <div id="container" class="flex flex-wrap"></div>
+
+      <div></div>
     </div>
   );
 }

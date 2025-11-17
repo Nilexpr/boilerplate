@@ -39,5 +39,6 @@
   ],
   "json.validate.enable": true,
   "json.format.enable": true,
-  "json.schemaDownload.enable": true
+  "json.schemaDownload.enable": true,
+  "cSpell.words": ["thisbeyond"]
 }
